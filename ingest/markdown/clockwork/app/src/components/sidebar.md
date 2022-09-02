@@ -1,0 +1,1 @@
+The `sidebar.rs` file is part of the Clockwork project and is r
