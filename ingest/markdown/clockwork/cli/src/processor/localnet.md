@@ -24,4 +24,14 @@ The `TestValidatorHelpers` trait provides helper functions for the Command struc
    Answer: The `start` function is responsible for starting the local test validator, initializing Clockwork, registering a worker, creating threads, and waiting for the validator process to be killed.
 
 2. Question: How does the `check_test_validator_version` function work?
-   Answer: The `check_test_validator_version` function checks if the Solana version of the validator and the Clockwork Engine's Solana version are the same. If they are different, it prints 
+   Answer: The `check_test_validator_version` function checks if the Solana version of the validator and the Clockwork Engine's Solana version are the same. If they are different, it prints a warning message and recommends the user to update their Solana version.
+
+3. Question: What does the `mint_clockwork_token` function do?
+   Answer: The `mint_clockwork_token` function creates a new mint for the Clockwork token, initializes it, creates an associated token account, and mints 10 tokens to the local user.
+
+4. Question: How are threads created in the `create_threads` function?
+   Answer: The `create_threads` function creates two threads: an epoch thread and a hasher thread. It does this by calling the `clockwork_client::thread::instruction::thread_create` function with the appropriate parameters for each thread.
+
+5. Question: What is the purpose of the `TestValidatorHelpers` trait and its implementations?
+   Answer: The `TestValidatorHelpers` trait provides helper methods for the `Command` struct to simplify the process of starting a test validator with the required arguments, such as adding BPF programs, setting the network URL, and specifying clone addresses.
+    
