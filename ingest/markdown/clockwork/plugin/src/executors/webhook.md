@@ -1,0 +1,7 @@
+The `webhook.rs` file is part of the Clockwork project and is responsible for executing webhooks. It defines a struct called `WebhookExecutor` and its associated methods. The primary function of this file is to send HTTP requests to specified URLs when certain events occur in the system.
+
+The `WebhookExecutor` struct has a single field, `config`, which is of type `PluginConfig`. This field stores the configuration settings for the plugin.
+
+The `new` function is an associated function that creates a new instance of the `WebhookExecutor` struct. It takes a `PluginConfig` as an argument and returns a new `WebhookExecutor` with the given configuration.
+
+The `execute_webhooks` function is an asynchronous method that takes a reference-counted `Arc<Self>`, an `Arc<RpcClient>`, and a vector of `Pubkey` as arguments. It returns a `PluginResult<()>`. This function is responsible for executing the webhooks by sending HTTP requests to the specified URLs. It iterates through the given `pubkeys` and retrieves the corresponding `Webhook` objects from the `client`. It then sends an HTTP POST request to the hardcoded URL "http://127.0.0.1:8000/relay" with a JSON payload containing the `Relay` object
