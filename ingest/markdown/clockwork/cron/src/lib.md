@@ -22,4 +22,21 @@ In summary, the `lib.rs` file is the main entry point for the Clockwork cron exp
    Answer: This line is an attribute that tells the Rust compiler to deny any code that uses idioms that were considered outdated or deprecated in the 2018 edition of Rust. This helps ensure that the code follows the latest best practices and guidelines.
 
 2. Question: What is the purpose of the `clockwork_cron::Schedule` struct and how is it used in the example code?
-   
+   Answer: The `Schedule` struct represents a cron schedule, which is a set of rules for when a task should be executed. In the example code, a `Schedule` is created from a cron expression string, and then used to find the next timestamp when the task should be executed.
+
+3. Question: How does the `from_str` method work for creating a `Schedule` from a cron expression string?
+   Answer: The `from_str` method is an implementation of the `FromStr` trait for the `Schedule` struct. It takes a cron expression string as input, parses it, and returns a `Result` containing either a `Schedule` instance or an error if the parsing fails.
+
+4. Question: What is the purpose of the `after` method in the example code, and how does it work with the `take` and `next` methods?
+   Answer: The `after` method is used to find the next occurrences of the cron schedule after a given `DateTime`. It returns an iterator over the upcoming occurrences. The `take` method is used to limit the number of occurrences returned by the iterator, and the `next` method is used to get the first occurrence from the iterator.
+
+5. Question: What are the different modules in this library, and what are their roles?
+   Answer: The library consists of several modules, each with a specific role:
+   - `error`: Contains error types and handling for the library.
+   - `ordinal`: Provides functionality for working with ordinal numbers.
+   - `parsing`: Contains functions for parsing cron expressions and creating `Schedule` instances.
+   - `queries`: Implements query methods for working with `Schedule` instances.
+   - `schedule`: Defines the `Schedule` struct and its associated methods.
+   - `specifier`: Contains types and functions for working with cron specifiers.
+   - `time_unit`: Defines the `TimeUnitSpec` struct and its associated methods.
+    
