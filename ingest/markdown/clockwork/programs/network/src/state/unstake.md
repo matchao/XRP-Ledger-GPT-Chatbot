@@ -21,4 +21,14 @@ In summary, the `unstake.rs` file is responsible for defining the data structure
    Answer: The `Unstake` struct represents an unstaking action in the Clockwork project. It contains fields such as `amount` (the amount to be unstaked), `authority` (the public key of the authority), `delegation` (the public key of the delegation), `id` (a unique identifier for the unstaking action), and `worker` (the public key of the worker).
 
 2. Question: How is the `pubkey` function in the `Unstake` struct used?
-   Answer: The `pubkey` fun
+   Answer: The `pubkey` function is used to generate a unique public key for an unstaking action based on the given `id`. It combines the constant `SEED_UNSTAKE` and the `id` to find a program address.
+
+3. Question: What is the purpose of the `UnstakeAccount` trait and its functions?
+   Answer: The `UnstakeAccount` trait defines an interface for an account that can perform unstaking actions. It provides functions such as `pubkey` (to get the public key of the account) and `init` (to initialize the account with the given parameters).
+
+4. Question: How does the `init` function in the `UnstakeAccount` trait implementation work?
+   Answer: The `init` function initializes an `Unstake` account with the given parameters, such as `amount`, `authority`, `delegation`, `id`, and `worker`. It sets the corresponding fields in the account and returns a `Result` indicating success or failure.
+
+5. Question: What is the purpose of the `anchor_lang` import and how is it used in this code?
+   Answer: The `anchor_lang` import provides macros and utilities for working with Solana programs in Rust. In this code, it is used to define the `Unstake` struct as an account with the `#[account]` attribute and to derive the `AnchorDeserialize` trait for the struct.
+    
