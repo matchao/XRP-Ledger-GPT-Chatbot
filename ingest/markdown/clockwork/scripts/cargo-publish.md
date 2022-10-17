@@ -1,0 +1,3 @@
+The `cargo-publish.sh` script is a Bash script used to automate the process of publishing various components of the Clockwork project to the Rust package registry, crates.io. The script is divided into four sections, each responsible for publishing a different set of components.
+
+1. Publish shared libs: This section publishes three shared libraries - `clockwork-cron`, `clockwork-macros`, and `clockwork-utils`. The `cargo publish -p` command is used to publish each library, followed by a `sleep 25` command to introduce a 25-second delay between each publish action. This delay is necessary to give the registry time to process the

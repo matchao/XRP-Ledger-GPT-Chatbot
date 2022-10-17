@@ -17,4 +17,11 @@ In summary, the `webhook_create.rs` file is responsible for creating a new webho
    Answer: The input parameters for the `WebhookCreate` struct are `body` (Vec<u8>), `headers` (HashMap<String, String>), `id` (Vec<u8>), `method` (HttpMethod), and `url` (String).
 
 3. Question: How is the `webhook` account initialized in the `handler` function?
-   Answer: The `webhook` account is initialized by setting its fields (authority, body, created_at, header
+   Answer: The `webhook` account is initialized by setting its fields (authority, body, created_at, headers, id, method, relayer, and url) with the provided input parameters and the current slot from the Clock.
+
+4. Question: What is the purpose of the `transfer` function call in the `handler` function?
+   Answer: The `transfer` function call is used to transfer the `WEBHOOK_FEE` from the `payer` account to the `webhook` account, holding the fee in escrow.
+
+5. Question: What is the return type of the `handler` function and what does it signify?
+   Answer: The return type of the `handler` function is `Result<()>`. It signifies that the function will return either an empty tuple (Ok(())) on successful execution or an error (Err) if any issues occur during the process.
+    
