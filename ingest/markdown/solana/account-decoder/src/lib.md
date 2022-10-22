@@ -11,4 +11,10 @@ The `UiDataSliceConfig` struct represents a configuration for slicing binary dat
 Overall, this code provides a way to encode and decode Solana accounts for JSON serialization. It can be used in the larger Solana project to provide a standardized way of representing Solana accounts in JSON format.
 ## Questions: 
  1. What is the purpose of the `UiAccount` struct and its associated methods?
-- The `UiAccount` stru
+- The `UiAccount` struct is a duplicate representation of an account for pretty JSON serialization. Its associated methods encode and decode the account data in various formats, including binary, base58, base64, and JSON.
+
+2. What is the purpose of the `UiFeeCalculator` struct and its associated `From` and `Default` implementations?
+- The `UiFeeCalculator` struct represents a fee calculator for a transaction, and its associated `From` implementation converts a `FeeCalculator` into a `UiFeeCalculator`. The `Default` implementation sets the `lamports_per_signature` field to 0.
+
+3. What is the purpose of the `slice_data` function and where is it used?
+- The `slice_data` function slices a byte slice according to a given offset and length, and returns the resulting slice. It is used in the `UiAccount` methods to slice the account data according to a given `UiDataSliceConfig`.
