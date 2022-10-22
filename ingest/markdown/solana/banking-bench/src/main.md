@@ -19,4 +19,10 @@ cargo run --release -- --iterations 1000 --num-chunks 16 --packets-per-batch 192
 This command runs the benchmark with 1000 iterations, 16 transaction chunks, 192 packets per batch, and no write lock contention.
 ## Questions: 
  1. **Question**: What is the purpose of the `WriteLockContention` enum and how is it used in the code?
-   **Answer**: The `WriteLockContention` enum is used to specify the level of write lock contention for the accounts in the test transactions. It has three possible values: `None`, `SameBatchOnly`, and `Full`. It is used in the `make_accounts_txs` function to determine the account keys for the transactions based on the specifie
+   **Answer**: The `WriteLockContention` enum is used to specify the level of write lock contention for the accounts in the test transactions. It has three possible values: `None`, `SameBatchOnly`, and `Full`. It is used in the `make_accounts_txs` function to determine the account keys for the transactions based on the specified contention level.
+
+2. **Question**: How does the `PacketsPerIteration` struct work and what is its role in the benchmarking process?
+   **Answer**: The `PacketsPerIteration` struct holds the packet batches and transactions for a single iteration of the benchmark. It is used to generate and store transactions with the specified parameters (e.g., packets per batch, write lock contention, etc.) and to refresh the blockhash for the transactions when needed. It plays a crucial role in managing the transactions and packet batches for each iteration of the benchmark.
+
+3. **Question**: What is the purpose of the `simulate_mint` flag and how does it affect the transactions generated for the benchmark?
+   **Answer**: The `simulate_mint` flag is used to enable the simulation of mint transactions, which have higher priority compared to regular transactions. When this flag is set, a certain percentage of transactions in a batch (specified by `mint_txs_percentage`) will be simulated as mint transactions, having conflicting accounts and higher compute-unit-price. This allows the benchmark to test the performance of the system under different transaction priority scenarios.
