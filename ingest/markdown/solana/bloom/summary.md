@@ -18,4 +18,20 @@ assert!(bloom.contains(&key));
 
 In this example, a Bloom filter is created with an optimal configuration for 100 items, a false positive rate of 0.1, and a maximum of 100 bits. A key is then hashed and checked for membership in the filter. After adding the key to the filter, the `contains` method returns `true`.
 
-The `benches` subfolder contains benchmarking code for the performance of bloom filters and hash maps, which are essential data structures in databases and networking applications. The code in this file utilizes the `Bloom` struct from the `solana_bloom` crate and the `HashSet` struct from the standard library to create a bloom filter and a hash map of `Signature` objects, respectively. The `
+The `benches` subfolder contains benchmarking code for the performance of bloom filters and hash maps, which are essential data structures in databases and networking applications. The code in this file utilizes the `Bloom` struct from the `solana_bloom` crate and the `HashSet` struct from the standard library to create a bloom filter and a hash map of `Signature` objects, respectively. The `Signature` struct, defined in the `solana_sdk` crate, represents a cryptographic signature.
+
+The `src` subfolder contains the implementation of the Bloom filter and provides an example of how the `Bloom` filter can be used:
+
+```rust
+use solana_bloom::bloom::Bloom;
+
+let mut bloom = Bloom::new(1000, 0.01);
+bloom.add("hello");
+bloom.add("world");
+
+assert!(bloom.contains("hello"));
+assert!(bloom.contains("world"));
+assert!(!bloom.contains("foo"));
+```
+
+The `solana_frozen_abi_macro` crate is used to generate code for serializing and deserializing the `Bloom` struct for use in Solana's on-chain state. This allows the Bloom filter to be used in Solana's smart contracts.
