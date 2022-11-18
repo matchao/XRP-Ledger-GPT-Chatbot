@@ -11,4 +11,13 @@ Here is an example of how this script might be used in a larger security protoco
 3. If any RSA keys are found in the file, the server denies the user access and logs the attempt.
 4. If no RSA keys are found, the server grants the user access and logs the attempt.
 
-Overall, the `check-ssh-keys.sh` script serves as a simple but effective security measure to prevent unauthorized access to Solana servers via R
+Overall, the `check-ssh-keys.sh` script serves as a simple but effective security measure to prevent unauthorized access to Solana servers via RSA keys.
+## Questions: 
+ 1. What is the purpose of this script?
+   This script checks if there are any rsa keys in the specified file and exits with an error message if any are found.
+
+2. Why are rsa keys not allowed?
+   The script mentions that small key sizes are insecure, so it's possible that rsa keys with small key sizes are being targeted.
+
+3. What happens if the script finds an rsa key?
+   The script will print an error message stating that no rsa keys are allowed and exit with a status code of 1.
