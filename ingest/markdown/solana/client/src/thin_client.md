@@ -35,4 +35,15 @@ let signature = thin_client
 ```
 
 In summary, the `thin_client` module provides a convenient way for client code to interact with the Solana network using a high-level API, abstracting away the underlying network communication details.
-## 
+## Questions: 
+ 1. **Question:** What is the purpose of the `ThinClient` enum and how does it differ from the `BackendThinClient`?
+   
+   **Answer:** The `ThinClient` enum is a thin wrapper over `thin-client/ThinClient` to ease the construction of the `ThinClient` for code dealing with both UDP and QUIC. If the scenario only uses UDP or QUIC, it is recommended to use `thin-client/ThinClient` directly. The `BackendThinClient` is the actual implementation of the thin client for both UDP and QUIC.
+
+2. **Question:** How does the `dispatch!` macro work in this code?
+
+   **Answer:** The `dispatch!` macro is used to define methods for the `ThinClient` enum that will call the corresponding method on the underlying `BackendThinClient` variant (either `Quic` or `Udp`). It simplifies the code by avoiding the need to write repetitive match statements for each method.
+
+3. **Question:** How can a developer choose between using QUIC or UDP when creating a new `ThinClient`?
+
+   **Answer:** The choice between QUIC or UDP is determined by the `ConnectionCache` parameter passed to the `ThinClient::new` function. If the `ConnectionCache` is of type `ConnectionCache::Quic`, a QUIC-based `ThinClient` will be created, and if it is of type `ConnectionCache::Udp`, a UDP-based `ThinClient` will be created.
