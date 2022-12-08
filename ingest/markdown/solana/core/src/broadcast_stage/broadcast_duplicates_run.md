@@ -12,4 +12,10 @@ An example of how this module is used in the larger project is when a leader nod
    
    **Answer**: The `BroadcastDuplicatesRun` struct is used to manage the state and behavior of the broadcast stage for handling duplicate shreds. It contains a `BroadcastDuplicatesConfig` struct, which holds configuration settings for the broadcast stage, such as the stake partition value.
 
-2. **Question**: How does the `run` method work, and what is the significance
+2. **Question**: How does the `run` method work, and what is the significance of the `last_entries` variable?
+
+   **Answer**: The `run` method is responsible for processing entries received from the banking stage, converting them into shreds, and broadcasting them to the network. The `last_entries` variable is used to store the original last entry and the duplicate extra last entries when the conditions for creating a partition are met.
+
+3. **Question**: How does the `transmit` method create a cluster partition and broadcast data to the network?
+
+   **Answer**: The `transmit` method creates a cluster partition by calculating the cumulative stake and selecting nodes based on the stake partition value from the `BroadcastDuplicatesConfig`. It then broadcasts the data shreds to the appropriate nodes in the network, either skipping or directly sending partition shreds based on the node's membership in the cluster partition.

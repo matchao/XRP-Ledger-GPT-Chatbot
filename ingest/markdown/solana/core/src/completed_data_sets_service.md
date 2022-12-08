@@ -1,0 +1,7 @@
+[View code on GitHub](https://github.com/solana-labs/solana/blob/master/core/src/completed_data_sets_service.rs)
+
+The `completed_data_sets_service.rs` file contains the implementation of the `CompletedDataSetsService` struct, which acts as a hub for running different operations when a "completed data set" is received by the validator. A completed data set is represented as a vector of `CompletedDataSetInfo` structs, which contain information about the slot, start index, and end index of the completed data set. 
+
+The `CompletedDataSetsService` struct has a `new` method that takes in a `CompletedDataSetsReceiver`, an `Arc<Blockstore>`, an `Arc<RpcSubscriptions>`, an `exit` flag, and an `Arc<MaxSlots>` struct. The `new` method creates a new thread that loops until the `exit` flag is set. Within the loop, the `recv_completed_data_sets` method is called to receive completed data sets from the `completed_sets_receiver`. If the `recv_completed_data_sets` method returns an error, the loop is broken. 
+
+The `recv_completed_data_sets` method receives a completed data set from the `completed_sets_receiver` and iterates over the `CompletedDataSetInfo` structs in the set. For each `CompletedDataSetInfo`, the method retrieves the entries in the data block using the `Blockstore`'s `get_entries_in_data_block` method. If the entries are successfully retrieved, the method e
