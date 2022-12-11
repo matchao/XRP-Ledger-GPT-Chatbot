@@ -1,0 +1,3 @@
+[View code on GitHub](https://github.com/solana-labs/solana/blob/master/core/src/sample_performance_service.rs)
+
+The `SamplePerformanceService` is a struct that provides a service for sampling performance metrics of a Solana node. It periodically collects statistics on the number of transactions and slots processed by the node and writes them to a `PerfSampleV2` object, which is then stored in the `Blockstore`. The purpose of this service is to provide a way to monitor the performance of a Solana node over time a

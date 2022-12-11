@@ -35,4 +35,4 @@ println!("Next leader for TPU vote: {:?}", next_leader_tpu_vote);
 - The `next_leader_x` function is a generic function that takes a closure as an argument to select the appropriate port for the next leader. This allows for code reuse and reduces duplication.
 
 3. What is the role of the `FORWARD_TRANSACTIONS_TO_LEADER_AT_SLOT_OFFSET` constant?
-- The `FORWARD_TRANSACTIONS_TO_LEADER_AT_SLOT_OFFSET
+- The `FORWARD_TRANSACTIONS_TO_LEADER_AT_SLOT_OFFSET` constant is used to determine the number of slots to wait before forwarding transactions to the next leader. This helps ensure that the next leader is ready to receive transactions before they are forwarded.
