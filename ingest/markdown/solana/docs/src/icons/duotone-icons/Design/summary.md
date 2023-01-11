@@ -16,4 +16,26 @@ These icons can be used in various parts of the Solana project, such as in the u
 For example, if the Solana project has a text editor component, these icons can be used in the toolbar to allow users to format their text. Here's a code snippet that demonstrates how to use these icons in an HTML file:
 
 ```html
-<button class="toolbar-button"
+<button class="toolbar-button">
+  <img src="path/to/Design/align-left.svg" alt="Align Left" />
+</button>
+<button class="toolbar-button">
+  <img src="path/to/Design/align-center.svg" alt="Align Center" />
+</button>
+<button class="toolbar-button">
+  <img src="path/to/Design/align-right.svg" alt="Align Right" />
+</button>
+<button class="toolbar-button">
+  <img src="path/to/Design/bold.svg" alt="Bold" />
+</button>
+<button class="toolbar-button">
+  <img src="path/to/Design/italic.svg" alt="Italic" />
+</button>
+<button class="toolbar-button">
+  <img src="path/to/Design/underline.svg" alt="Underline" />
+</button>
+```
+
+In this example, each icon is wrapped in a `<button>` element with a class of `toolbar-button`. The `src` attribute of the `<img>` element points to the respective SVG file, and the `alt` attribute provides a description of the icon's purpose.
+
+By using these icons in the Solana project, developers can create a consistent and visually appealing user interface that enhances the overall user experience.

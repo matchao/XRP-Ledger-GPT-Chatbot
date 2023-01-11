@@ -1,0 +1,7 @@
+[View code on GitHub](https://github.com/solana-labs/solana/tree/master/na/docs/src/implemented-proposals)
+
+The `implemented-proposals` folder in the Solana project's documentation contains detailed information on various proposals that have been implemented in the Solana ecosystem. These proposals cover a wide range of topics, including the economics of validator clients, staking mechanisms, performance requirements, and security best practices. This documentation is essential for developers and operators who are interested in understanding the inner workings of the Solana ecosystem and how different components interact with each other.
+
+One of the key subfolders in this directory is `ed_overview`, which focuses on the economics of validator clients in the Solana ecosystem. The documents in this folder provide a comprehensive understanding of the economics, staking, performance, and security aspects of validator clients, which are crucial for ensuring the stability and security of the Solana network.
+
+For example, a developer who wants to set up a validator client in the Solana ecosystem can refer to the **Validator Client Performance** document to understand the hardware and software requirements for running a validator client. They can al
