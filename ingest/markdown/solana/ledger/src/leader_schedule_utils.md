@@ -12,4 +12,17 @@ The `num_ticks_left_in_slot` function takes a bank and a tick height as input an
 
 The `first_of_consecutive_leader_slots` function takes a slot as input and returns the first slot in the consecutive leader slots sequence that contains the input slot. This function is used to determine the first slot in the sequence of consecutive leader slots.
 
-The `sort_stakes` function takes a mutable vector of stakes (represented as public keys and st
+The `sort_stakes` function takes a mutable vector of stakes (represented as public keys and stake amounts) and sorts them first by stake and then by pubkey to ensure a deterministic result. It then deduplicates the sorted vector in O(n) time. This function is used to sort and deduplicate the staked nodes before creating a `LeaderSchedule` object.
+
+The file also contains a test module that tests the various functions in the file.
+
+Overall, the functions in this file are used to generate and manipulate leader schedules in the Solana blockchain. They are used by other parts of the Solana codebase to schedule block production and determine the current leader for a given slot.
+## Questions: 
+ 1. What does the `leader_schedule` function do?
+- The `leader_schedule` function takes an epoch and a bank as input and returns an optional `LeaderSchedule` struct that contains the leader schedule for the given epoch.
+
+2. What is the purpose of the `LeaderScheduleByIdentity` type?
+- The `LeaderScheduleByIdentity` type is a map that associates leader base58 identity pubkeys with the slot indices relative to the first epoch slot.
+
+3. What is the purpose of the `num_ticks_left_in_slot` function?
+- The `num_ticks_left_in_slot` function takes a bank and a tick height as input and returns the number of ticks remaining from the specified tick height to the end of the slot implied by the tick height.
