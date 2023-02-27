@@ -21,4 +21,8 @@ In this example, a counter named "example_counter" is created with a log rate of
  1. **Question**: What is the purpose of the `Counter` struct and its fields?
    **Answer**: The `Counter` struct is used to represent a counter for tracking metrics. It has fields for the counter's name, total accumulated value (counts), number of times the counter has been incremented (times), the last accumulated value logged (lastlog), the rate at which logs are generated (lograte), and the rate at which metrics are submitted (metricsrate).
 
-2. **Question**: How are the macros `inc_counter`, `inc_counter_info`, and `inc_new_counter` used in 
+2. **Question**: How are the macros `inc_counter`, `inc_counter_info`, and `inc_new_counter` used in this code?
+   **Answer**: The macros are used to increment the counter and log the information based on the log level. `inc_counter` increments the counter with a specified log level and count, `inc_counter_info` increments the counter with the log level set to Info, and `inc_new_counter` creates a new counter and increments it with the specified log level, count, log rate, and metrics rate.
+
+3. **Question**: How does the `init` function in the `Counter` struct work, and what is its purpose?
+   **Answer**: The `init` function initializes the log rate and metrics rate of the counter by reading the environment variables `SOLANA_DEFAULT_LOG_RATE` and `SOLANA_DEFAULT_METRICS_RATE`. If these variables are not set, it uses the default values defined in the code. The purpose of this function is to set up the counter with the appropriate rates for logging and submitting metrics.
