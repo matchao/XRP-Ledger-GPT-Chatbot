@@ -10,4 +10,17 @@ The `PrioritizationFeeDetails` struct has a `new` method that takes a `Prioritiz
 
 If the `PrioritizationFeeType` value is `ComputeUnitPrice`, the `fee` field is calculated by multiplying the `compute_unit_limit` value by the fee per compute unit and rounding up to the nearest lamport. The `priority` field is set to the fee per compute unit. 
 
-If the `PrioritizationFeeType` value is `Deprecated`, the `fee` field is set to the total fee, and the `priority` field is calculated by dividing the fee by the `compute_unit_limit` value and rounding down to the nearest 
+If the `PrioritizationFeeType` value is `Deprecated`, the `fee` field is set to the total fee, and the `priority` field is calculated by dividing the fee by the `compute_unit_limit` value and rounding down to the nearest lamport. 
+
+The file also contains a `test` module that tests the `new` method with different input values. 
+
+Overall, this code is used to calculate the prioritization fee for a transaction and is an important part of the Solana project's transaction processing system.
+## Questions: 
+ 1. What is the purpose of the `PrioritizationFeeDetails` struct and its associated methods?
+- The `PrioritizationFeeDetails` struct is used to calculate the fee and priority of a transaction based on the `PrioritizationFeeType` and `compute_unit_limit` parameters passed to its `new` method. The `get_fee` and `get_priority` methods are used to retrieve the calculated fee and priority values, respectively.
+
+2. What is the difference between `PrioritizationFeeType::ComputeUnitPrice` and `PrioritizationFeeType::Deprecated`?
+- `PrioritizationFeeType::ComputeUnitPrice` is used to calculate the fee based on a given compute unit price and compute unit limit, while `PrioritizationFeeType::Deprecated` is used to calculate the fee based on a deprecated fee value and compute unit limit. The latter is marked for removal in a future version of the code.
+
+3. What is the purpose of the `MICRO_LAMPORTS_PER_LAMPORT` constant and how is it used in the code?
+- `MICRO_LAMPORTS_PER_LAMPORT` is a constant that defines the conversion rate between micro-lamports and lamports. It is used to convert fee values between the two units of measurement in various calculations throughout the code.
