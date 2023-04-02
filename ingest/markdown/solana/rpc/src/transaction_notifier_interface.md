@@ -30,4 +30,8 @@ impl TransactionNotifier for MyTransactionNotifier {
 This implementation simply prints a message to the console when a transaction is processed. Other implementations could perform more complex actions such as updating a user interface or triggering other parts of the application.
 ## Questions: 
  1. What is the purpose of the `TransactionNotifier` trait?
-    - The `TransactionNotifier` trait defines a method `notify_transaction` that is used to notify client
+    - The `TransactionNotifier` trait defines a method `notify_transaction` that is used to notify clients about the status of a transaction.
+2. What is the `TransactionNotifierLock` type used for?
+    - The `TransactionNotifierLock` type is a thread-safe lock that holds a reference to an object that implements the `TransactionNotifier` trait.
+3. What are the dependencies of this file?
+    - This file depends on the `solana_sdk` and `solana_transaction_status` crates, as well as the `std::sync` module.
