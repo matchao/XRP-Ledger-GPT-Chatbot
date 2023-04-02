@@ -23,4 +23,5 @@ Overall, this file provides the necessary imports and entry point for the remote
 2. Why are the `clippy::integer_arithmetic` and `dead_code` lints allowed?
    - The `clippy::integer_arithmetic` lint is allowed to suppress warnings related to integer arithmetic, and `dead_code` is allowed to suppress warnings related to unused code.
 
-3. What is the `
+3. What is the `ledger` module responsible for?
+   - The `ledger` module contains code related to interacting with a hardware wallet or other secure storage device for managing cryptographic keys.
