@@ -14,4 +14,13 @@ Overall, this tool is useful for debugging and troubleshooting issues related to
 $ store-tool --file /path/to/store/file
 ```
 
-This 
+This would open the store file located at `/path/to/store/file` and print information about each account stored in it to the console.
+## Questions: 
+ 1. What is the purpose of this code?
+   - This code is a command-line tool for inspecting the contents of a Solana AppendVec store file.
+
+2. What dependencies are being used in this code?
+   - This code uses the `clap`, `log`, `solana_runtime`, and `solana_sdk` crates.
+
+3. What is the purpose of the `is_account_zeroed` function?
+   - The `is_account_zeroed` function checks if an account stored in the AppendVec store is empty (i.e. has default values for all fields).
