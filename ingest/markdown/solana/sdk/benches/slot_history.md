@@ -28,4 +28,6 @@ let num_processed = slot_history.num_slots_processed();
  1. What is the purpose of the `SlotHistory` struct?
    - The `SlotHistory` struct is used to keep track of the history of slots in the Solana blockchain.
 2. What is the `bench_to_from_account` function benchmarking?
-   - The `bench_to_from_account` function is benchmarking the time it takes to create an acco
+   - The `bench_to_from_account` function is benchmarking the time it takes to create an account for testing purposes and then convert it back to a `SlotHistory` struct.
+3. What is the `bench_slot_history_add_new` function benchmarking?
+   - The `bench_slot_history_add_new` function is benchmarking the time it takes to add 5 new slots to the `SlotHistory` struct, with each slot being 100,000 slots apart.
