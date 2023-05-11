@@ -46,4 +46,27 @@ void my_program() {
 }
 ```
 
-`string.h` provides
+`string.h` provides macros for string manipulation functions, such as `memcpy`, `memset`, and `strlen`, mapping them to equivalent functions provided by the Solana SDK.
+
+```c
+uint8_t src[] = {1, 2, 3, 4, 5};
+uint8_t dest[5];
+
+sol_memcpy(dest, src, sizeof(src));
+// dest now contains {1, 2, 3, 4, 5}
+```
+
+`wchar.h` contains functions and macros for working with wide character strings, essential for supporting languages that require more than one byte per character.
+
+```c
+#include <wchar.h>
+#include <stdio.h>
+
+int main() {
+    wchar_t str[] = L"你好，世界！";
+    wprintf(L"%ls\n", str);
+    return 0;
+}
+```
+
+The subfolders `sol` and `sys` contain additional header files for specific functionalities, such as system parameters for configuring the BPF runtime environment and optimizing its performance. These files and folders collectively provide a comprehensive set of tools for developers to create powerful and interoperable BPF programs on the Solana blockchain.
