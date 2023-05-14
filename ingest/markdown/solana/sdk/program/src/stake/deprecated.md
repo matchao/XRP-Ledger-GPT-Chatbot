@@ -22,4 +22,13 @@ fn delegate_stake(stake_amount: u64) {
 
 In this example, the `delegate_stake()` function takes a `stake_amount` parameter and checks if it is below the minimum delegation threshold defined by `MINIMUM_STAKE_DELEGATION`. If it is, the function panics. Otherwise, the stake is delegated to a validator. 
 
-Overall, the code in `deprecated.rs` provides a deprecated constant value that sets a minimum threshold for stake delegation in the Solan
+Overall, the code in `deprecated.rs` provides a deprecated constant value that sets a minimum threshold for stake delegation in the Solana network. Developers should use the `get_minimum_delegation()` function instead.
+## Questions: 
+ 1. Why was this code deprecated?
+   The code was deprecated because it is recommended to use `solana_program::stake::tools::get_minimum_delegation()` instead, starting from version 1.11.0 of the solana program.
+
+2. What was the purpose of this code?
+   The code defines a constant `MINIMUM_STAKE_DELEGATION` with a value of 1, which likely represents the minimum amount of stake that can be delegated in the solana program.
+
+3. Are there any potential issues with using this code?
+   There are no apparent issues with using this code, but it is recommended to use the updated function `solana_program::stake::tools::get_minimum_delegation()` instead to ensure compatibility with future versions of the solana program.
