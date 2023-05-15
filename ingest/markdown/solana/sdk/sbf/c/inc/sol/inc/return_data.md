@@ -18,4 +18,26 @@ void my_program() {
 
 void another_program() {
   uint8_t buffer[MAX_RETURN_DATA];
-  So
+  SolPubkey program_id;
+  uint64_t data_len = sol_get_return_data(buffer, sizeof(buffer), &program_id);
+  if (data_len > 0) {
+    // Do something with the return data
+  }
+}
+```
+
+In this example, `my_program` sets the return data to a byte array containing three bytes. `another_program` retrieves the return data and checks if it is non-zero. If it is, it does something with the return data.
+
+Overall, this file provides a simple but important system for setting and retrieving return data in the Solana blockchain. It allows programs to communicate with each other and with the outside world, making it a key component of the Solana ecosystem.
+## Questions: 
+ 1. What is the purpose of this code?
+    
+    This code defines system calls for setting and getting return data in the Solana blockchain.
+
+2. What is the maximum size of return data that can be set?
+    
+    The maximum size of return data that can be set is 1024 bytes.
+
+3. What is the purpose of the `program_id` parameter in `sol_get_return_data`?
+    
+    The `program_id` parameter in `sol_get_return_data` is used to retrieve the program ID which set the return data, but it is only set if there was some return data (the function returns non-zero).
