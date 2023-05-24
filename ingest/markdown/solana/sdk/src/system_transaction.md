@@ -1,0 +1,5 @@
+[View code on GitHub](https://github.com/solana-labs/solana/blob/master/sdk/src/system_transaction.rs)
+
+The `system_transaction` module in the Solana project provides functionality for creating system transactions. This module contains several functions that allow users to create and sign different types of system transactions. 
+
+The `create_account` function creates and signs a new `SystemInstruction::CreateAccount` transaction. This transaction creates a new account on the blockchain and assigns it to a program. The function takes in the `from_keypair` and `to_keypair` parameters, which represent the keypairs of the sender and receiver of the transaction, respectively. The `recent_blockhash` parameter is the hash of the most recent block on the blockchain. The `lamports` parameter is the number of lamports (the smallest unit of currency in Solana) to transfer to the new account, and the `space` parameter is the amount of space to
