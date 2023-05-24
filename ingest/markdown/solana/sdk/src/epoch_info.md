@@ -40,4 +40,4 @@ fn main() {
 
 3. What is the purpose of the `transaction_count` field in the `EpochInfo` struct?
     
-    The `transaction_count` field in the `EpochInfo` struct represents the total number of transactions processed without error since genesis. It is an optional field, meaning that it may not always be present in 
+    The `transaction_count` field in the `EpochInfo` struct represents the total number of transactions processed without error since genesis. It is an optional field, meaning that it may not always be present in the `EpochInfo` struct.
