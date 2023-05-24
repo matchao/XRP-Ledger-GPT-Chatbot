@@ -1,0 +1,5 @@
+[View code on GitHub](https://github.com/solana-labs/solana/tree/master/na/sdk/src/wasm)
+
+The `solana/sdk/src/wasm` folder contains Rust code that provides a JavaScript interface for interacting with the Solana blockchain. This code is compiled to WebAssembly, enabling it to be executed in browser environments and facilitating the development of decentralized applications (dApps) that interact with the Solana blockchain using JavaScript.
+
+The `keypair.rs` file implements a JavaScript interface for the `Keypair` type, which represents a cryptographic keypair consisting of a private key and a corresponding public key. This interface allows JavaScript code running in a WebAssembly environment to create, manipulate, and serialize cryptographic keypairs for use in Solana transactions. For example, a web-based Solana wallet application might use this interface to generate new keypai
