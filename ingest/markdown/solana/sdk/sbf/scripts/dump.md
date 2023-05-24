@@ -10,4 +10,18 @@ Next, the script checks that the `rustfilt` command is available. `rustfilt` is 
 
 The script then creates the output directory if it does not already exist, and generates a mangled dump of the SBF program. The mangled dump contains the output of the `ls` command on the SBF program file, as well as the output of the `llvm-readelf` and `objdump` commands. The `llvm-readelf` command is used to extract information about the program's ELF sections, while the `objdump` command is used to disassemble the program's machine code.
 
-Finally, the script demangles the mangled dump using `rustfilt` and writes the resulting dump to the output file. If the output file is not created successfully, t
+Finally, the script demangles the mangled dump using `rustfilt` and writes the resulting dump to the output file. If the output file is not created successfully, the script will print an error message and exit.
+
+Overall, this script is a useful tool for inspecting and understanding the compiled binary of an SBF program. It can be used as part of the development and debugging process for SBF programs.
+## Questions: 
+ 1. What is the purpose of this script?
+   
+   This script is used to dump the contents of a given sbf-program.so file into a human-readable format.
+
+2. What dependencies are required to run this script?
+   
+   This script requires the rustfilt tool to be installed, which can be done by running `cargo install rustfilt`.
+
+3. What is the output of this script?
+   
+   The output of this script is a human-readable dump of the contents of the given sbf-program.so file, written to the specified dump.txt file.
