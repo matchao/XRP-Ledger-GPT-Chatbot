@@ -16,4 +16,13 @@ The `responder` function creates a new thread that runs the `recv_send` function
 
 The `recv_packet_batches` and `recv_vec_packet_batches` functions are utility functions that receive packet batches from a `PacketBatchReceiver` and return them as a tuple containing the received packet batches, the total number of packets, and the duration of the receive operation.
 
-In summary, the `streamer` module provides efficient and high-throughput data streaming services for the Solana proj
+In summary, the `streamer` module provides efficient and high-throughput data streaming services for the Solana project. It handles receiving and sending data from/to UDP sockets, manages staked nodes, and maintains statistics for monitoring the performance of the streaming services.
+## Questions: 
+ 1. **Question**: What is the purpose of the `StakedNodes` struct and how is it used in the code?
+   **Answer**: The `StakedNodes` struct is used to store information about the total stake, maximum stake, minimum stake, and stake maps for IP addresses and public keys. It is not directly used in the code provided, but it is likely used elsewhere in the project to manage and track staking information for nodes.
+
+2. **Question**: How does the `recv_loop` function handle the case when the node is in "vote only" mode?
+   **Answer**: In the `recv_loop` function, if the `in_vote_only_mode` option is set, it checks the value of the `AtomicBool` it contains. If it is set to `true`, the function sleeps for 1 millisecond and then continues to the next iteration of the loop, effectively skipping the packet processing for that iteration.
+
+3. **Question**: What is the purpose of the `StreamerSendStats` struct and how is it used in the `responder` function?
+   **Answer**: The `StreamerSendStats` struct is used to collect and report statistics about the sent packets, such as the number of bytes sent, the number of packets sent, and the distribution of sent bytes across different hosts. In the `responder` function, if the `stats_reporter_sender` option is set, a `StreamerSendStats` instance is created and used to record packet statistics. The statistics are then reported periodically based on a specified duration or when the host map reaches a certain size.
