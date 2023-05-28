@@ -10,4 +10,45 @@ Some of the supported instruction types include:
 
 - `createAccount`: Creates a new account with the specified lamports, space, and owner.
 - `assign`: Assigns an owner to an account.
-- `transfer`: Transfers lampo
+- `transfer`: Transfers lamports between two accounts.
+- `createAccountWithSeed`: Creates a new account with a seed, lamports, space, and owner.
+- `allocate`: Allocates space for an account.
+- `allocateWithSeed`: Allocates space for an account with a seed and owner.
+- `assignWithSeed`: Assigns an owner to an account with a seed.
+- `transferWithSeed`: Transfers lamports between two accounts with a seed and owner.
+
+The parsed instructions are used in the larger Solana project to process and validate transactions, as well as to provide human-readable information about the transactions.
+
+For example, to parse a `transfer` instruction:
+
+```rust
+let lamports = 55;
+let from_pubkey = Pubkey::new_unique();
+let to_pubkey = Pubkey::new_unique();
+let instruction = system_instruction::transfer(&from_pubkey, &to_pubkey, lamports);
+let mut message = Message::new(&[instruction], None);
+let parsed_instruction = parse_system(
+    &message.instructions[0],
+    &AccountKeys::new(&message.account_keys, None)
+).unwrap();
+assert_eq!(
+    parsed_instruction,
+    ParsedInstructionEnum {
+        instruction_type: "transfer".to_string(),
+        info: json!({
+            "source": from_pubkey.to_string(),
+            "destination": to_pubkey.to_string(),
+            "lamports": lamports,
+        }),
+    }
+);
+```
+## Questions: 
+ 1. **Question**: What is the purpose of the `parse_system` function and what are its input parameters?
+   **Answer**: The `parse_system` function is responsible for parsing a given system instruction and returning a `ParsedInstructionEnum` containing the instruction type and relevant information. It takes two input parameters: a reference to a `CompiledInstruction` and a reference to `AccountKeys`.
+
+2. **Question**: How does the `parse_system` function handle different types of `SystemInstruction`?
+   **Answer**: The `parse_system` function uses a match statement to handle different types of `SystemInstruction`. For each variant of `SystemInstruction`, it constructs a corresponding `ParsedInstructionEnum` with the appropriate instruction type and information.
+
+3. **Question**: What is the purpose of the `check_num_system_accounts` function and how is it used in the `parse_system` function?
+   **Answer**: The `check_num_system_accounts` function is a helper function that checks if the number of accounts in the given instruction matches the expected number for a specific system instruction. It is used in the `parse_system` function to validate the number of accounts for each type of `SystemInstruction` before parsing it.
