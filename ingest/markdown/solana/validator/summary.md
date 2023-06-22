@@ -1,6 +1,6 @@
-[View code on GitHub](https://github.com/solana-labs/solana/tree/master/na/validator/src)
+[View code on GitHub](https://github.com/solana-labs/solana/tree/master/na/validator)
 
-The `validator/src` folder in the Solana project contains essential components for monitoring and running a Solana validator node. It provides a dashboard for tracking the validator's status, utility functions for logging and progress bars, and the source code for the Solana validator binary.
+The `validator` folder in the Solana project is essential for running and monitoring a Solana validator node. It provides a dashboard for tracking the validator's status, utility functions for logging and progress bars, and the source code for the Solana validator binary.
 
 The `dashboard.rs` file defines the `Dashboard` struct, which displays information about a validator node, such as its identity, genesis hash, version, and various addresses. The `Dashboard::new()` function initializes a new `Dashboard` instance, and the `Dashboard::run()` function starts the main loop for updating the dashboard. Example usage:
 
@@ -32,4 +32,4 @@ let validator = Validator::new(ledger_path, identity_path, config);
 validator.start();
 ```
 
-In summary, the `validator/src` folder is crucial for running and monitoring a Solana validator node. It provides a dashboard for tracking the validator's status, utility functions for logging and progress bars, and the source code for the Solana validator binary. Developers working with the Solana project can use the code in this folder to better understand the inner workings of the Solana validator and customize its behavior according to their needs.
+In summary, the `validator` folder is crucial for running and monitoring a Solana validator node. It provides a dashboard for tracking the validator's status, utility functions for logging and progress bars, and the source code for the Solana validator binary. Developers working with the Solana project can use the code in this folder to better understand the inner workings of the Solana validator and customize its behavior according to their needs.
