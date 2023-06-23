@@ -18,4 +18,5 @@ In the larger project, this code can be used for cryptographic operations involv
 2. **Question**: Why are there two separate implementations of the functions in the `target_arch` module, one for when the target OS is Solana and one for when it's not?
    **Answer**: The two separate implementations are provided to support different environments. When the target OS is Solana, the functions use Solana's program syscalls for curve operations, which are optimized for the Solana runtime. When the target OS is not Solana, the functions use the `curve25519_dalek` library, which is a general-purpose implementation of Curve25519 operations.
 
-3. **Question**: 
+3. **Question**: What is the purpose of the `validate_ristretto` function and how does it determine if a given point is valid?
+   **Answer**: The `validate_ristretto` function checks if a given `PodRistrettoPoint` is a valid Ristretto point. It does this by attempting to decompress the point using the `CompressedRistretto::from_slice` method and checking if the decompression is successful. If the decompression is successful, it means the point is valid, and the function returns `true`. Otherwise, it returns `false`.
