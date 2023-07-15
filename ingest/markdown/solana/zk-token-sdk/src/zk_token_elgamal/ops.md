@@ -42,4 +42,10 @@ let result = subtract_from(&ciphertext, amount);
 These functions are used in the larger zk-token project to perform arithmetic operations on encrypted values while preserving privacy.
 ## Questions: 
  1. **Question:** What is the purpose of the `SHIFT_BITS` constant and how is it used in the code?
-   **Answer:** The `SHIFT_BITS` constant is set to 16 and is used in the `add_with_lo_hi` and `subtract_with_lo_hi` functions to shift the `right_ciphertext_hi` by 2^16. This is done to combine the low and high parts of the ciphertext before performing the addition or subtraction operation with th
+   **Answer:** The `SHIFT_BITS` constant is set to 16 and is used in the `add_with_lo_hi` and `subtract_with_lo_hi` functions to shift the `right_ciphertext_hi` by 2^16. This is done to combine the low and high parts of the ciphertext before performing the addition or subtraction operation with the `left_ciphertext`.
+
+2. **Question:** How does the `add` function work and what are its inputs and outputs?
+   **Answer:** The `add` function takes two ElGamal ciphertexts as input, represented by `left_ciphertext` and `right_ciphertext`. It performs point addition on the corresponding Pedersen commitments and decryption handles of the input ciphertexts and returns a new ElGamal ciphertext as the result.
+
+3. **Question:** What is the purpose of the `to_scalar` function and how is it used in the code?
+   **Answer:** The `to_scalar` function is used to convert a `u64` amount into a curve25519 scalar. It is used in the `add_to`, `subtract_from`, `add_with_lo_hi`, and `subtract_with_lo_hi` functions to perform scalar multiplication with the ElGamal ciphertexts and the constant `G` (a base point on the curve).
