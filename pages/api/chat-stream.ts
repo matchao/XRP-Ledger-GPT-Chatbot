@@ -49,4 +49,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const result = await chain.call({
             question,
-            chat_history: ch
+            chat_history: chatHistory,
+        });
+        chatHistory.push([question, result.answer]);
+
+        sendResponse({ sender: 'bot', message: "", type: 'end' });
+      } catch (e) {
+        sendResponse({
+            sender: 'bot',
+            message: "Sorry, something went wrong. Try again.",
+            type: 'error'
+        });
+      }
+    })
+  });
+
+  res.end();
+}
